@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-fraunces: 'Fraunces', Georgia, serif;
+  --font-dm-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --color-emerald: #0E5A45;
+  --color-orange: #FF7A1A;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-dm-sans);
+  color: #18201E;
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+  selection-background-color: #0E5A45;
+  selection-color: #FFFFFF;
+}
+
+::selection {
+  background-color: #0E5A45;
+  color: #FFFFFF;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F7F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #0E5A45;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #147459;
+}
+
+/* Hide scrollbar for clean carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Editorial Arch Masks and Shapes */
+.arch-card {
+  border-radius: 120px 120px 24px 24px;
+}
+
+.arch-image {
+  border-radius: 160px 160px 28px 28px;
+}
+
+@media (max-width: 640px) {
+  .arch-card {
+    border-radius: 80px 80px 20px 20px;
+  }
+  .arch-image {
+    border-radius: 100px 100px 24px 24px;
+  }
+}
+
+/* Organic Blobs */
+@keyframes blob-morph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
+
+.animate-blob {
+  animation: blob-morph 14s ease-in-out infinite;
+}
+
+/* Custom Cursor styling for desktop */
+@media (min-width: 1024px) {
+  .custom-cursor-pointer {
+    cursor: none;
+  }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
